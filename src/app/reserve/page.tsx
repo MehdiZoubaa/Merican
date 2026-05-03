@@ -47,14 +47,14 @@ export default function ReservePage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-sand">
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto text-center">
-          <div className="text-5xl mb-4">✓</div>
-          <h1 className="text-3xl font-bold text-ocean mb-4">Reservation Confirmed!</h1>
-          <p className="text-gray-600 mb-4">
-            Thank you for your reservation. A confirmation email has been sent to {formData.email}
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-ocean to-primary-dark">
+        <div className="bg-white rounded-2xl shadow-2xl p-12 max-w-md mx-auto text-center animate-slideUp">
+          <div className="text-6xl mb-4">✓</div>
+          <h1 className="text-3xl font-serif font-bold text-ocean mb-4">Reservation Confirmed!</h1>
+          <p className="text-gray-600 mb-4 leading-relaxed">
+            Thank you for your reservation. A confirmation email has been sent to <span className="font-semibold">{formData.email}</span>
           </p>
-          <p className="text-sm text-gray-500">Redirecting to dashboard...</p>
+          <p className="text-sm text-coral font-semibold">Redirecting to your dashboard...</p>
         </div>
       </div>
     )
@@ -62,95 +62,97 @@ export default function ReservePage() {
 
   return (
     <div>
-      {/* Header */}
-      <section className="py-12 bg-ocean text-white">
+      {/* Premium Header */}
+      <section className="py-24 bg-gradient-to-br from-ocean via-blue-900 to-primary-dark text-white">
         <div className="container">
-          <h1 className="text-4xl font-bold font-serif">Reserve Your Table</h1>
-          <p className="text-seafoam mt-2">Book your dining experience at Merican</p>
+          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4">Reserve Your Table</h1>
+          <p className="text-xl text-seafoam">Experience fine dining at Merican with an advanced reservation</p>
         </div>
       </section>
 
       {/* Reservation Form */}
-      <section className="py-20">
-        <div className="container max-w-2xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Form */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-6 font-serif">Booking Details</h2>
+      <section className="py-20 bg-gray-50">
+        <div className="container max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Form - Takes 2 columns */}
+            <div className="md:col-span-2 bg-white rounded-2xl shadow-xl p-10">
+              <h2 className="text-3xl font-serif font-bold mb-8 text-gray-800">Booking Details</h2>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Full Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ocean"
-                    placeholder="Your name"
-                    required
-                  />
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-3 text-sm">Full Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:border-transparent transition"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-3 text-sm">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:border-transparent transition"
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ocean"
-                    placeholder="your@email.com"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                  <label className="block text-gray-700 font-semibold mb-3 text-sm">Phone Number</label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ocean"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:border-transparent transition"
                     placeholder="(555) 123-4567"
                     required
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-700 font-semibold mb-2">Date</label>
+                    <label className="block text-gray-700 font-semibold mb-3 text-sm">Reservation Date</label>
                     <input
                       type="date"
                       name="date"
                       value={formData.date}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ocean"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:border-transparent transition"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-gray-700 font-semibold mb-2">Time</label>
+                    <label className="block text-gray-700 font-semibold mb-3 text-sm">Time</label>
                     <input
                       type="time"
                       name="time"
                       value={formData.time}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ocean"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:border-transparent transition"
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Number of Guests</label>
+                  <label className="block text-gray-700 font-semibold mb-3 text-sm">Number of Guests</label>
                   <select
                     name="guests"
                     value={formData.guests}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ocean"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean focus:border-transparent transition"
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                       <option key={num} value={num}>
@@ -162,42 +164,57 @@ export default function ReservePage() {
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-coral text-white rounded-lg hover:bg-opacity-90 transition font-semibold mt-6"
+                  className="w-full py-4 bg-gradient-to-r from-coral to-accent-light text-white rounded-lg hover:shadow-lg transition font-semibold text-lg mt-8"
                 >
                   Confirm Reservation
                 </button>
               </form>
             </div>
 
-            {/* Info */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-bold font-serif mb-4 text-ocean">Opening Hours</h3>
-                <div className="space-y-2 text-gray-700">
-                  <p>
-                    <strong>Monday - Thursday:</strong> 11:00 AM - 10:00 PM
+            {/* Info Sidebar */}
+            <div className="space-y-6">
+              {/* Hours Card */}
+              <div className="card">
+                <h3 className="text-xl font-serif font-bold text-ocean mb-4">Hours of Operation</h3>
+                <div className="space-y-3 text-sm text-gray-700">
+                  <div>
+                    <p className="font-semibold">Mon - Thu</p>
+                    <p className="text-gray-600">11:00 AM - 10:00 PM</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Fri - Sat</p>
+                    <p className="text-gray-600">11:00 AM - 11:30 PM</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Sunday</p>
+                    <p className="text-gray-600">12:00 PM - 9:00 PM</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Card */}
+              <div className="card">
+                <h3 className="text-xl font-serif font-bold text-ocean mb-4">Contact Info</h3>
+                <div className="space-y-3 text-sm text-gray-700">
+                  <p className="flex items-start gap-3">
+                    <span className="text-coral mt-1">📍</span>
+                    <span>123 Ocean Street<br/>Coastal City, CC 12345</span>
                   </p>
-                  <p>
-                    <strong>Friday - Saturday:</strong> 11:00 AM - 11:00 PM
+                  <p className="flex items-center gap-3">
+                    <span className="text-coral">📞</span>
+                    <span>(555) 123-4567</span>
                   </p>
-                  <p>
-                    <strong>Sunday:</strong> 12:00 PM - 9:00 PM
+                  <p className="flex items-center gap-3">
+                    <span className="text-coral">✉</span>
+                    <span>reservations@merican.com</span>
                   </p>
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-2xl font-bold font-serif mb-4 text-ocean">Contact</h3>
-                <div className="space-y-2 text-gray-700">
-                  <p>📍 123 Ocean Street, Coastal City, CC 12345</p>
-                  <p>📞 (555) 123-4567</p>
-                  <p>📧 reservations@merican.com</p>
-                </div>
-              </div>
-
-              <div className="bg-sand rounded-lg p-6">
-                <h3 className="font-bold text-ocean mb-2">📝 Cancellation Policy</h3>
-                <p className="text-sm text-gray-600">
+              {/* Policy Card */}
+              <div className="card bg-sand border-l-4 border-coral">
+                <h3 className="font-serif font-bold text-ocean mb-2">Cancellation Policy</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
                   Cancellations must be made at least 24 hours in advance for a full refund of any deposit.
                 </p>
               </div>

@@ -1,9 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -18,5 +16,18 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    { pattern: /^bg-/ },
+    { pattern: /^text-/ },
+    { pattern: /^hover:bg-/ },
+    { pattern: /^md:/ },
+    { pattern: /^font-/ },
+    { pattern: /^px-/ },
+    { pattern: /^py-/ },
+    { pattern: /^mb-/ },
+    { pattern: /^mt-/ },
+    { pattern: /^w-/ },
+    { pattern: /^h-/ },
+  ],
   plugins: [],
 }

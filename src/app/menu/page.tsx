@@ -88,7 +88,7 @@ const menuData = [
   },
 ];
 
-function MenuCard({ category }: any) { 
+function MenuCard({ category }: {category : any) { 
   const Icon = category.icon;
 
   return (
